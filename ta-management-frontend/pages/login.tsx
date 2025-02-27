@@ -111,114 +111,114 @@
 // }
 
 // export default Login
-"use client"
+// "use client"
 
-import type React from "react"
+// import type React from "react"
 
-import { useState } from "react"
-import { useRouter } from "next/router"
-import Link from "next/link"
-import axios from "axios"
-import styles from "./login.module.css"
-import Head from "next/head"
+// import { useState } from "react"
+// import { useRouter } from "next/router"
+// import Link from "next/link"
+// import axios from "axios"
+// import styles from "./login.module.css"
+// import Head from "next/head"
 
-const Login = () => {
-  const router = useRouter()
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  })
-  const [message, setMessage] = useState("")
+// const Login = () => {
+//   const router = useRouter()
+//   const [formData, setFormData] = useState({
+//     email: "",
+//     password: "",
+//   })
+//   const [message, setMessage] = useState("")
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    try {
-      const response = await axios.post("http://localhost:5000/login", formData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      setMessage(response.data.message)
-      setTimeout(() => {
-        router.push("/")
-      }, 1000)
-    } catch (error: any) {
-      if (error.response?.data?.message) {
-        setMessage(error.response.data.message)
-      } else {
-        setMessage("Login failed. Please try again.")
-      }
-    }
-  }
+//   const handleSubmit = async (e: React.FormEvent) => {
+//     e.preventDefault()
+//     try {
+//       const response = await axios.post("http://localhost:5000/login", formData, {
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       })
+//       setMessage(response.data.message)
+//       setTimeout(() => {
+//         router.push("/")
+//       }, 1000)
+//     } catch (error: any) {
+//       if (error.response?.data?.message) {
+//         setMessage(error.response.data.message)
+//       } else {
+//         setMessage("Login failed. Please try again.")
+//       }
+//     }
+//   }
 
-  return (
-    <>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <div className={styles.container}>
-        <div className={styles.formWrapper}>
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <h1 className={styles.title}>Welcome!</h1>
-            <p className={styles.subtitle}>Please enter your details to sign in</p>
+//   return (
+//     <>
+//       <Head>
+//         <link
+//           href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap"
+//           rel="stylesheet"
+//         />
+//       </Head>
+//       <div className={styles.container}>
+//         <div className={styles.formWrapper}>
+//           <form onSubmit={handleSubmit} className={styles.form}>
+//             <h1 className={styles.title}>Welcome!</h1>
+//             <p className={styles.subtitle}>Please enter your details to sign in</p>
 
-            <div className={styles.inputGroup}>
-              <label htmlFor="email" className={styles.label}>
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className={styles.input}
-                required
-              />
-            </div>
+//             <div className={styles.inputGroup}>
+//               <label htmlFor="email" className={styles.label}>
+//                 Email
+//               </label>
+//               <input
+//                 id="email"
+//                 type="email"
+//                 placeholder="Enter your email"
+//                 value={formData.email}
+//                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+//                 className={styles.input}
+//                 required
+//               />
+//             </div>
 
-            <div className={styles.inputGroup}>
-              <div className={styles.labelRow}>
-                <label htmlFor="password" className={styles.label}>
-                  Password
-                </label>
-                <Link href="/forgot-password" className={styles.forgotPassword}>
-                  Forgot password?
-                </Link>
-              </div>
-              <input
-                id="password"
-                type="password"
-                placeholder="Enter your password"
-                value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className={styles.input}
-                required
-              />
-            </div>
+//             <div className={styles.inputGroup}>
+//               <div className={styles.labelRow}>
+//                 <label htmlFor="password" className={styles.label}>
+//                   Password
+//                 </label>
+//                 <Link href="/forgot-password" className={styles.forgotPassword}>
+//                   Forgot password?
+//                 </Link>
+//               </div>
+//               <input
+//                 id="password"
+//                 type="password"
+//                 placeholder="Enter your password"
+//                 value={formData.password}
+//                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+//                 className={styles.input}
+//                 required
+//               />
+//             </div>
 
-            <button type="submit" className={styles.button}>
-              Sign in
-            </button>
+//             <button type="submit" className={styles.button}>
+//               Sign in
+//             </button>
 
-            {message && <p className={`${styles.message} ${styles.error}`}>{message}</p>}
+//             {message && <p className={`${styles.message} ${styles.error}`}>{message}</p>}
 
-            <p className={styles.register}>
-              Don't have an account?{" "}
-              <Link href="/register" className={styles.registerLink}>
-                Sign up
-              </Link>
-            </p>
-          </form>
-        </div>
-      </div>
-    </>
-  )
-}
+//             <p className={styles.register}>
+//               Don't have an account?{" "}
+//               <Link href="/register" className={styles.registerLink}>
+//                 Sign up
+//               </Link>
+//             </p>
+//           </form>
+//         </div>
+//       </div>
+//     </>
+//   )
+// }
 
-export default Login
+// export default Login
 
 
